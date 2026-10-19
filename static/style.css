@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +33,7 @@ button {
 header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #eee;
@@ -41,6 +45,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  position: relative;
 }
 
 .logo {
@@ -51,6 +56,7 @@ header {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 28px;
   font-size: 14px;
   color: #555;
@@ -58,6 +64,179 @@ header {
 
 .nav-links a:hover {
   color: #000;
+}
+
+/* Dropdown Mega Menu for Men */
+.nav-item {
+  position: static;
+  display: flex;
+  align-items: center;
+}
+
+.men-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.men-trigger .chevron {
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover .men-trigger {
+  color: #000;
+}
+
+.nav-item:hover .men-trigger .chevron {
+  transform: rotate(180deg);
+}
+
+.mega-menu {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  padding-top: 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  z-index: 110;
+}
+
+.nav-item:hover .mega-menu,
+.mega-menu:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mega-menu-inner {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  border: 1px solid #eee;
+  border-radius: 22px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+  display: grid;
+  grid-template-columns: 1.05fr 1.05fr 1.05fr 1.45fr;
+  gap: 26px;
+  padding: 28px 30px;
+}
+
+.mega-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.mega-sub {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 14px;
+}
+
+.mega-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mega-list li a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  transition: color 0.15s;
+}
+
+.mega-list li a:hover {
+  color: #000;
+}
+
+.mega-list li a span {
+  font-size: 11px;
+  font-weight: 500;
+  color: #888;
+}
+
+.mega-brand-col {
+  background: #f8f8f6;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #ededeb;
+}
+
+.spotlight-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.brand-spotlight h4 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.brand-spotlight p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.brand-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.brand-badges span {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #222;
+}
+
+.mega-cta {
+  display: inline-block;
+  background: #111;
+  color: #fff !important;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 999px;
+  text-align: center;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.mega-cta:hover {
+  background: #333;
+  transform: translateX(2px);
 }
 
 .cart {
@@ -126,6 +305,7 @@ section {
   align-items: end;
   justify-content: space-between;
   margin-bottom: 25px;
+  gap: 15px;
 }
 
 .section-head h2 {
@@ -136,6 +316,70 @@ section {
 .section-head span {
   color: #777;
   font-size: 14px;
+}
+
+.section-desc {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.collection-tag {
+  background: #f1f1ed;
+  color: #444 !important;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* Brand info highlight banner */
+.brand-info-banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.brand-info-item {
+  background: #ffffff;
+  border: 1px solid #eee;
+  padding: 22px;
+  border-radius: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.brand-info-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-info-item b {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.brand-info-item p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #666;
 }
 
 .products {
@@ -178,7 +422,19 @@ section {
 
 .name {
   font-weight: 700;
-  margin: 7px 0 12px;
+  margin: 7px 0 10px;
+}
+
+.quality-badge {
+  display: inline-block;
+  background: #f4f4f2;
+  color: #444;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
 }
 
 .price-row {
@@ -214,7 +470,6 @@ section {
   display: block;
   pointer-events: none;
 }
-
 
 .features {
   display: grid;
@@ -253,6 +508,9 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
   .features {
+    grid-template-columns: 1fr;
+  }
+  .brand-info-banner {
     grid-template-columns: 1fr;
   }
   .nav-links {

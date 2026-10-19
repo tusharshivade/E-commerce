@@ -12,10 +12,61 @@
   <div class="container nav">
     <div class="logo">NOVA.</div>
     <nav class="nav-links">
-      <a href="#">New arrivals</a>
-      <a href="#">Men</a>
-      <a href="#">Women</a>
-      <a href="#">Accessories</a>
+      <a href="#shop">New arrivals</a>
+      <div class="nav-item">
+        <a href="#men" class="men-trigger">Men <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-col">
+              <h3 class="mega-title">Shirts & Tops</h3>
+              <p class="mega-sub">100% Giza Cotton & Linen</p>
+              <ul class="mega-list">
+                <li><a href="#men">Classic Oxford Shirt <span>Raymond • Egyptian Cotton</span></a></li>
+                <li><a href="#men">Breathable Linen Shirt <span>Allen Solly • Pure Flax</span></a></li>
+                <li><a href="#men">Pima Signature Polo <span>Ralph Lauren • Long-Staple</span></a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-title">Pants & Trousers</h3>
+              <p class="mega-sub">Stretch Selvedge & Chinos</p>
+              <ul class="mega-list">
+                <li><a href="#men">Slim Fit Stretch Denim <span>Levi's 511 • All-Day Flex</span></a></li>
+                <li><a href="#men">Smart 360 Flex Chinos <span>Dockers • Wrinkle-Free</span></a></li>
+                <li><a href="#men">Tailored Dress Trousers <span>Raymond • Fine Wool Blend</span></a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-title">Footwear & Shoes</h3>
+              <p class="mega-sub">Full-grain Leather & Cushioned</p>
+              <ul class="mega-list">
+                <li><a href="#men">Craftmaster Derby Shoes <span>Clarks • Handcrafted Leather</span></a></li>
+                <li><a href="#men">Air Max Urban Runners <span>Nike • Responsive Cushion</span></a></li>
+                <li><a href="#men">Heritage Chelsea Boots <span>Timberland • Waterproof Nubuck</span></a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col mega-brand-col">
+              <div class="brand-spotlight">
+                <span class="spotlight-tag">Brand Spotlight</span>
+                <h4>Iconic Menswear Brands</h4>
+                <p>Curated menswear from globally renowned labels known for uncompromising craftsmanship, premium fabrics, and tailored fits made to last.</p>
+                <div class="brand-badges">
+                  <span>Raymond</span>
+                  <span>Levi's</span>
+                  <span>Clarks</span>
+                  <span>Nike</span>
+                  <span>Dockers</span>
+                </div>
+                <a class="mega-cta" href="#men">Explore Men's Collection →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#shop">Women</a>
+      <a href="#shop">Accessories</a>
     </nav>
     <button class="cart" onclick="showCart()">Cart (<span id="cartCount">0</span>)</button>
   </div>
@@ -143,6 +194,132 @@
           <div class="category">Electronics</div>
           <div class="name">Mechanical Desk Keyboard</div>
           <div class="price-row"><span class="price">₹5,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="men" class="men-section">
+    <div class="section-head">
+      <div>
+        <h2>Men's Collection</h2>
+        <p class="section-desc">Handpicked shirts, pants & footwear crafted with premium fabrics from iconic brands.</p>
+      </div>
+      <span class="collection-tag">Curated Brands & Quality</span>
+    </div>
+
+    <!-- Brand Story & Quality Highlights -->
+    <div class="brand-info-banner">
+      <div class="brand-info-item">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <b>Iconic Partner Brands</b>
+          <p>Partnered with world-class heritage labels including Raymond, Levi's, Clarks, Nike & Dockers for authentic craftsmanship.</p>
+        </div>
+      </div>
+
+      <div class="brand-info-item">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+        </div>
+        <div>
+          <b>Finest Material Quality</b>
+          <p>100% Giza Egyptian cotton, pure French flax linen, all-day stretch denim & full-grain Italian leather.</p>
+        </div>
+      </div>
+
+      <div class="brand-info-item">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <b>Tailored Fit & Durability</b>
+          <p>Precision tailoring, reinforced seams, color retention wash-after-wash, and all-day breathable comfort.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Men's Products Grid (Shirts, Pants, Shoes) -->
+    <div class="products">
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80" alt="Raymond Oxford Shirt">
+        <div class="info">
+          <div class="category">Men's Shirts • Raymond</div>
+          <div class="name">Tailored Classic Oxford Shirt</div>
+          <span class="quality-badge">100% Giza Egyptian Cotton</span>
+          <div class="price-row"><span class="price">₹2,799</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80" alt="Allen Solly Linen Shirt">
+        <div class="info">
+          <div class="category">Men's Shirts • Allen Solly</div>
+          <div class="name">Breathable Casual Linen Shirt</div>
+          <span class="quality-badge">Pure French Flax Linen</span>
+          <div class="price-row"><span class="price">₹2,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=80" alt="Ralph Lauren Polo">
+        <div class="info">
+          <div class="category">Men's Shirts • Ralph Lauren</div>
+          <div class="name">Signature Pima Cotton Polo</div>
+          <span class="quality-badge">Long-Staple Pima Cotton</span>
+          <div class="price-row"><span class="price">₹3,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80" alt="Levi's 511 Denim">
+        <div class="info">
+          <div class="category">Men's Pants • Levi's</div>
+          <div class="name">511 Slim Fit Stretch Denim</div>
+          <span class="quality-badge">All-Day Flexible Selvedge</span>
+          <div class="price-row"><span class="price">₹3,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80" alt="Dockers Chinos">
+        <div class="info">
+          <div class="category">Men's Pants • Dockers</div>
+          <div class="name">Smart 360 Flex Chinos</div>
+          <span class="quality-badge">Wrinkle-Free 4-Way Stretch</span>
+          <div class="price-row"><span class="price">₹3,299</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=700&q=80" alt="Clarks Derby Shoes">
+        <div class="info">
+          <div class="category">Men's Shoes • Clarks</div>
+          <div class="name">Craftmaster Leather Derby</div>
+          <span class="quality-badge">Handcrafted Full-Grain Leather</span>
+          <div class="price-row"><span class="price">₹7,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Nike Urban Runner">
+        <div class="info">
+          <div class="category">Men's Shoes • Nike</div>
+          <div class="name">Air Max Urban Runners</div>
+          <span class="quality-badge">Engineered Mesh & Air Unit</span>
+          <div class="price-row"><span class="price">₹6,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=700&q=80" alt="Timberland Chelsea Boots">
+        <div class="info">
+          <div class="category">Men's Shoes • Timberland</div>
+          <div class="name">Chelsea Heritage Boots</div>
+          <span class="quality-badge">Waterproof Nubuck Leather</span>
+          <div class="price-row"><span class="price">₹8,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
         </div>
       </article>
     </div>
