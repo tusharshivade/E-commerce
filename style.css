@@ -73,7 +73,8 @@ header {
   align-items: center;
 }
 
-.men-trigger {
+.men-trigger,
+.dropdown-trigger {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -81,15 +82,18 @@ header {
   cursor: pointer;
 }
 
-.men-trigger .chevron {
+.men-trigger .chevron,
+.dropdown-trigger .chevron {
   transition: transform 0.2s ease;
 }
 
-.nav-item:hover .men-trigger {
+.nav-item:hover .men-trigger,
+.nav-item:hover .dropdown-trigger {
   color: #000;
 }
 
-.nav-item:hover .men-trigger .chevron {
+.nav-item:hover .men-trigger .chevron,
+.nav-item:hover .dropdown-trigger .chevron {
   transform: rotate(180deg);
 }
 
