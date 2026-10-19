@@ -197,7 +197,24 @@ section {
   border-radius: 50%;
   background: #111;
   color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
+
+.add:hover {
+  background: #333;
+  transform: scale(1.08);
+}
+
+.add svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  pointer-events: none;
+}
+
 
 .features {
   display: grid;
