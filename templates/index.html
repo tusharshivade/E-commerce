@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nova — Modern Store</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}" />
 </head>
 <body>
 
@@ -13,6 +14,8 @@
     <div class="logo">DevOps - Zero To Hero [AI Powered]</div>
     <nav class="nav-links">
       <a href="#shop">New arrivals</a>
+      
+      <!-- Men Mega Menu -->
       <div class="nav-item">
         <a href="#men" class="men-trigger">Men <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="mega-menu">
@@ -65,6 +68,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Women Mega Menu -->
       <div class="nav-item">
         <a href="#women" class="dropdown-trigger">Women <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
         <div class="mega-menu">
@@ -117,139 +122,434 @@
           </div>
         </div>
       </div>
+
+      <!-- Electronics Mega Menu -->
+      <div class="nav-item">
+        <a href="#electronics" class="dropdown-trigger">Electronics <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu-inner">
+            <div class="mega-col">
+              <h3 class="mega-title">Audio & Sound</h3>
+              <p class="mega-sub">Hi-Res Audio & Noise Cancelling</p>
+              <ul class="mega-list">
+                <li><a href="#electronics">Sony WH-1000XM5 <span>Industry Leading ANC • 30h</span></a></li>
+                <li><a href="#electronics">Bose SoundLink Max <span>Deep Stereo Bass • IP67</span></a></li>
+                <li><a href="#electronics">Marshall Stanmore III <span>Room-Filling Iconic Sound</span></a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-title">Computing & Laptops</h3>
+              <p class="mega-sub">Ultra-Thin, M3 & 4K Displays</p>
+              <ul class="mega-list">
+                <li><a href="#electronics">Apple MacBook Air M3 <span>Liquid Retina • 18h Battery</span></a></li>
+                <li><a href="#electronics">Dell UltraSharp 4K Hub <span>27-inch • USB-C 90W</span></a></li>
+                <li><a href="#electronics">Apple iPad Air M2 <span>Liquid Retina Display</span></a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col">
+              <h3 class="mega-title">Wearables & Peripherals</h3>
+              <p class="mega-sub">Smartwatches & Custom Desks</p>
+              <ul class="mega-list">
+                <li><a href="#electronics">Galaxy Watch Ultra <span>Titanium Grade 4 • Dual GPS</span></a></li>
+                <li><a href="#electronics">Logitech MX Master 3S <span>8K DPI • Silent Clicks</span></a></li>
+                <li><a href="#electronics">Keychron Q1 Pro <span>Custom Mechanical • QMK</span></a></li>
+              </ul>
+            </div>
+
+            <div class="mega-col mega-brand-col">
+              <div class="brand-spotlight">
+                <span class="spotlight-tag">Tech Spotlight</span>
+                <h4>Smart Electronics & Offers</h4>
+                <p>Experience groundbreaking performance with official brand warranties, instant discounts, and express dispatch on flagship tech gear.</p>
+                <div class="brand-badges">
+                  <span>Apple</span>
+                  <span>Sony</span>
+                  <span>Bose</span>
+                  <span>Samsung</span>
+                  <span>Dell</span>
+                </div>
+                <a class="mega-cta" href="#electronics">Explore Electronics →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <a href="#shop">Accessories</a>
     </nav>
-    <button class="cart" onclick="showCart()">Cart (<span id="cartCount">0</span>)</button>
+    <button class="cart" onclick="openCart()" aria-label="Open Shopping Cart">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="8" cy="21" r="1"/>
+        <circle cx="19" cy="21" r="1"/>
+        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+      </svg>
+      Cart (<span id="cartCount">0</span>)
+    </button>
   </div>
 </header>
 
 <main class="container">
   <section class="hero">
     <div class="hero-content">
-      <div class="eyebrow">New season / 2026</div>
-      <h1>Everyday essentials, elevated.</h1>
-      <p>Thoughtfully designed pieces for modern everyday living. Clean, comfortable and made to last.</p>
+      <div class="eyebrow">Festival Season Special / 2026</div>
+      <h1>Everyday essentials & smart tech, elevated.</h1>
+      <p>Thoughtfully designed pieces for modern everyday living. Exclusive limited-time offers and discounts across all collections.</p>
       <a class="btn" href="#shop">Shop collection →</a>
     </div>
   </section>
 
+  <!-- Featured Products Section -->
   <section id="shop">
     <div class="section-head">
-      <h2>Featured products</h2>
-      <span>Curated for you</span>
+      <div>
+        <h2>Featured products</h2>
+        <p class="section-desc">Handpicked everyday favorites with limited-time festival offers.</p>
+      </div>
+      <span class="collection-tag">Exclusive Offers Active</span>
     </div>
 
     <div class="products">
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Minimal watch">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 23% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Minimal Chronograph Watch">
+        </div>
         <div class="info">
           <div class="category">Accessories</div>
-          <div class="name">Minimal Chronograph</div>
-          <div class="price-row"><span class="price">₹8,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="name">Minimal Chronograph Watch</div>
+          
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Festival Deal: Save ₹2,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹8,499</span>
+              <span class="original-price">₹10,999</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-watch')" aria-label="Add Minimal Chronograph Watch to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Running shoes">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 22% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Urban Runner">
+        </div>
         <div class="info">
           <div class="category">Footwear</div>
           <div class="name">Urban Runner</div>
-          <div class="price-row"><span class="price">₹6,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Limited Deal: Save ₹2,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹6,999</span>
+              <span class="original-price">₹8,999</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-shoe')" aria-label="Add Urban Runner to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80" alt="Black backpack">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 28% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80" alt="Everyday Backpack">
+        </div>
         <div class="info">
           <div class="category">Bags</div>
           <div class="name">Everyday Backpack</div>
-          <div class="price-row"><span class="price">₹4,299</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Special Offer: Save ₹1,700</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹4,299</span>
+              <span class="original-price">₹5,999</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-bag')" aria-label="Add Everyday Backpack to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80" alt="Sunglasses">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge hot">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80" alt="Aero Sunglasses">
+        </div>
         <div class="info">
           <div class="category">Accessories</div>
           <div class="name">Aero Sunglasses</div>
-          <div class="price-row"><span class="price">₹2,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Clearance Offer: Save ₹1,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹2,499</span>
+              <span class="original-price">₹3,499</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-sunglass')" aria-label="Add Aero Sunglasses to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80" alt="Wireless headphones">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 31% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80" alt="Wireless Studio Headphones">
+        </div>
         <div class="info">
           <div class="category">Audio</div>
           <div class="name">Wireless Studio Headphones</div>
-          <div class="price-row"><span class="price">₹5,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Audio Special: Save ₹2,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹5,499</span>
+              <span class="original-price">₹7,999</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-headphone')" aria-label="Add Wireless Studio Headphones to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=700&q=80" alt="Smart watch">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 34% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=700&q=80" alt="Smart Fitness Watch">
+        </div>
         <div class="info">
           <div class="category">Electronics</div>
           <div class="name">Smart Fitness Watch</div>
-          <div class="price-row"><span class="price">₹3,299</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Smart Deal: Save ₹1,700</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,299</span>
+              <span class="original-price">₹4,999</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-smartwatch')" aria-label="Add Smart Fitness Watch to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=700&q=80" alt="Classic t-shirt">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 32% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=700&q=80" alt="Classic Cotton Tee">
+        </div>
         <div class="info">
           <div class="category">Apparel</div>
           <div class="name">Classic Cotton Tee</div>
-          <div class="price-row"><span class="price">₹1,299</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Essential Deal: Save ₹600</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹1,299</span>
+              <span class="original-price">₹1,899</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-tee')" aria-label="Add Classic Cotton Tee to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=700&q=80" alt="Leather wallet">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 30% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=700&q=80" alt="Slim Leather Wallet">
+        </div>
         <div class="info">
           <div class="category">Accessories</div>
           <div class="name">Slim Leather Wallet</div>
-          <div class="price-row"><span class="price">₹1,899</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Handcrafted Deal: Save ₹800</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹1,899</span>
+              <span class="original-price">₹2,699</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-wallet')" aria-label="Add Slim Leather Wallet to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80" alt="Bluetooth speaker">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 28% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80" alt="Compact Bluetooth Speaker">
+        </div>
         <div class="info">
           <div class="category">Audio</div>
           <div class="name">Compact Bluetooth Speaker</div>
-          <div class="price-row"><span class="price">₹3,799</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Weekend Deal: Save ₹1,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,799</span>
+              <span class="original-price">₹5,299</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-speaker')" aria-label="Add Compact Bluetooth Speaker to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=700&q=80" alt="Canvas sneakers">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge hot">⚡ 30% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=700&q=80" alt="Classic Canvas Sneakers">
+        </div>
         <div class="info">
           <div class="category">Footwear</div>
           <div class="name">Classic Canvas Sneakers</div>
-          <div class="price-row"><span class="price">₹3,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Streetwear Deal: Save ₹1,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,499</span>
+              <span class="original-price">₹4,999</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-sneaker')" aria-label="Add Classic Canvas Sneakers to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=80" alt="Insulated tumbler">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 32% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=80" alt="Insulated Steel Tumbler">
+        </div>
         <div class="info">
           <div class="category">Lifestyle</div>
           <div class="name">Insulated Steel Tumbler</div>
-          <div class="price-row"><span class="price">₹1,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Eco Choice Deal: Save ₹700</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹1,499</span>
+              <span class="original-price">₹2,199</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-tumbler')" aria-label="Add Insulated Steel Tumbler to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80" alt="Mechanical keyboard">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80" alt="Mechanical Desk Keyboard">
+        </div>
         <div class="info">
           <div class="category">Electronics</div>
           <div class="name">Mechanical Desk Keyboard</div>
-          <div class="price-row"><span class="price">₹5,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Desk Setup Deal: Save ₹2,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹5,999</span>
+              <span class="original-price">₹8,499</span>
+            </div>
+            <button class="add" onclick="addToCart('prod-keyboard')" aria-label="Add Mechanical Desk Keyboard to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
     </div>
   </section>
 
+  <!-- Men's Collection Section -->
   <section id="men" class="men-section">
     <div class="section-head">
       <div>
@@ -292,90 +592,235 @@
       </div>
     </div>
 
-    <!-- Men's Products Grid (Shirts, Pants, Shoes) -->
+    <!-- Men's Products Grid -->
     <div class="products">
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80" alt="Raymond Oxford Shirt">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 30% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=700&q=80" alt="Tailored Classic Oxford Shirt">
+        </div>
         <div class="info">
           <div class="category">Men's Shirts • Raymond</div>
           <div class="name">Tailored Classic Oxford Shirt</div>
           <span class="quality-badge">100% Giza Egyptian Cotton</span>
-          <div class="price-row"><span class="price">₹2,799</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Heritage Offer: Save ₹1,200</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹2,799</span>
+              <span class="original-price">₹3,999</span>
+            </div>
+            <button class="add" onclick="addToCart('men-oxford')" aria-label="Add Tailored Classic Oxford Shirt to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80" alt="Allen Solly Linen Shirt">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80" alt="Breathable Casual Linen Shirt">
+        </div>
         <div class="info">
           <div class="category">Men's Shirts • Allen Solly</div>
           <div class="name">Breathable Casual Linen Shirt</div>
           <span class="quality-badge">Pure French Flax Linen</span>
-          <div class="price-row"><span class="price">₹2,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Pure Flax Deal: Save ₹1,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹2,499</span>
+              <span class="original-price">₹3,499</span>
+            </div>
+            <button class="add" onclick="addToCart('men-linen')" aria-label="Add Breathable Casual Linen Shirt to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=80" alt="Ralph Lauren Polo">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge hot">⚡ 30% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=80" alt="Signature Pima Cotton Polo">
+        </div>
         <div class="info">
           <div class="category">Men's Shirts • Ralph Lauren</div>
           <div class="name">Signature Pima Cotton Polo</div>
           <span class="quality-badge">Long-Staple Pima Cotton</span>
-          <div class="price-row"><span class="price">₹3,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Signature Deal: Save ₹1,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,499</span>
+              <span class="original-price">₹4,999</span>
+            </div>
+            <button class="add" onclick="addToCart('men-polo')" aria-label="Add Signature Pima Cotton Polo to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80" alt="Levi's 511 Denim">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 27% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80" alt="511 Slim Fit Stretch Denim">
+        </div>
         <div class="info">
           <div class="category">Men's Pants • Levi's</div>
           <div class="name">511 Slim Fit Stretch Denim</div>
           <span class="quality-badge">All-Day Flexible Selvedge</span>
-          <div class="price-row"><span class="price">₹3,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Selvedge Deal: Save ₹1,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,999</span>
+              <span class="original-price">₹5,499</span>
+            </div>
+            <button class="add" onclick="addToCart('men-denim')" aria-label="Add 511 Slim Fit Stretch Denim to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80" alt="Dockers Chinos">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 27% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80" alt="Smart 360 Flex Chinos">
+        </div>
         <div class="info">
           <div class="category">Men's Pants • Dockers</div>
           <div class="name">Smart 360 Flex Chinos</div>
           <span class="quality-badge">Wrinkle-Free 4-Way Stretch</span>
-          <div class="price-row"><span class="price">₹3,299</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>360 Flex Offer: Save ₹1,200</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,299</span>
+              <span class="original-price">₹4,499</span>
+            </div>
+            <button class="add" onclick="addToCart('men-chinos')" aria-label="Add Smart 360 Flex Chinos to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=700&q=80" alt="Clarks Derby Shoes">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=700&q=80" alt="Craftmaster Leather Derby">
+        </div>
         <div class="info">
           <div class="category">Men's Shoes • Clarks</div>
           <div class="name">Craftmaster Leather Derby</div>
           <span class="quality-badge">Handcrafted Full-Grain Leather</span>
-          <div class="price-row"><span class="price">₹7,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Handcrafted Offer: Save ₹3,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹7,499</span>
+              <span class="original-price">₹10,499</span>
+            </div>
+            <button class="add" onclick="addToCart('men-derby')" aria-label="Add Craftmaster Leather Derby to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Nike Urban Runner">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge hot">⚡ 26% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Air Max Urban Runners">
+        </div>
         <div class="info">
           <div class="category">Men's Shoes • Nike</div>
           <div class="name">Air Max Urban Runners</div>
           <span class="quality-badge">Engineered Mesh & Air Unit</span>
-          <div class="price-row"><span class="price">₹6,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Air Max Special: Save ₹2,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹6,999</span>
+              <span class="original-price">₹9,499</span>
+            </div>
+            <button class="add" onclick="addToCart('men-runners')" aria-label="Add Air Max Urban Runners to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=700&q=80" alt="Timberland Chelsea Boots">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 31% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=700&q=80" alt="Chelsea Heritage Boots">
+        </div>
         <div class="info">
           <div class="category">Men's Shoes • Timberland</div>
           <div class="name">Chelsea Heritage Boots</div>
           <span class="quality-badge">Waterproof Nubuck Leather</span>
-          <div class="price-row"><span class="price">₹8,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Waterproof Deal: Save ₹4,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹8,999</span>
+              <span class="original-price">₹12,999</span>
+            </div>
+            <button class="add" onclick="addToCart('men-boots')" aria-label="Add Chelsea Heritage Boots to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
     </div>
   </section>
 
+  <!-- Women's Collection Section -->
   <section id="women" class="women-section">
     <div class="section-head">
       <div>
@@ -418,97 +863,626 @@
       </div>
     </div>
 
-    <!-- Women's Products Grid (Shirts, Pants, Shoes) -->
+    <!-- Women's Products Grid -->
     <div class="products">
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=700&q=80" alt="Zara Studio Poplin Shirt">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=700&q=80" alt="Tailored Poplin Shirt">
+        </div>
         <div class="info">
           <div class="category">Women's Shirts • Zara Studio</div>
           <div class="name">Tailored Poplin Shirt</div>
           <span class="quality-badge">100% Crisp Organic Cotton</span>
-          <div class="price-row"><span class="price">₹2,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Studio Offer: Save ₹1,200</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹2,999</span>
+              <span class="original-price">₹4,199</span>
+            </div>
+            <button class="add" onclick="addToCart('women-shirt')" aria-label="Add Tailored Poplin Shirt to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=700&q=80" alt="Mango Silk Blouse">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 30% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?auto=format&fit=crop&w=700&q=80" alt="Silk Satin Drape Blouse">
+        </div>
         <div class="info">
           <div class="category">Women's Shirts • Mango</div>
           <div class="name">Silk Satin Drape Blouse</div>
           <span class="quality-badge">100% Pure Mulberry Silk</span>
-          <div class="price-row"><span class="price">₹3,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Mulberry Silk Deal: Save ₹1,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,499</span>
+              <span class="original-price">₹4,999</span>
+            </div>
+            <button class="add" onclick="addToCart('women-blouse')" aria-label="Add Silk Satin Drape Blouse to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=700&q=80" alt="Everlane Linen Shirt">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=700&q=80" alt="Relaxed French Linen Shirt">
+        </div>
         <div class="info">
           <div class="category">Women's Shirts • Everlane</div>
           <div class="name">Relaxed French Linen Shirt</div>
           <span class="quality-badge">Breathable French Flax Linen</span>
-          <div class="price-row"><span class="price">₹2,699</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>French Flax Deal: Save ₹1,100</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹2,699</span>
+              <span class="original-price">₹3,799</span>
+            </div>
+            <button class="add" onclick="addToCart('women-linen')" aria-label="Add Relaxed French Linen Shirt to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80" alt="Massimo Dutti Trousers">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=80" alt="High-Rise Tailored Trousers">
+        </div>
         <div class="info">
           <div class="category">Women's Pants • Massimo Dutti</div>
           <div class="name">High-Rise Tailored Trousers</div>
           <span class="quality-badge">Fine Wool Blend & Pleated Fit</span>
-          <div class="price-row"><span class="price">₹4,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Tailored Wool Deal: Save ₹1,800</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹4,499</span>
+              <span class="original-price">₹6,299</span>
+            </div>
+            <button class="add" onclick="addToCart('women-trousers')" aria-label="Add High-Rise Tailored Trousers to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=700&q=80" alt="Levi's 721 Skinny">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge save">⚡ 27% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1584370848010-d7fe6bc767ec?auto=format&fit=crop&w=700&q=80" alt="721 High-Rise Skinny Denim">
+        </div>
         <div class="info">
           <div class="category">Women's Pants • Levi's</div>
           <div class="name">721 High-Rise Skinny Denim</div>
           <span class="quality-badge">Sculpting Stellar Stretch Denim</span>
-          <div class="price-row"><span class="price">₹3,799</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline save-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Stellar Stretch Deal: Save ₹1,400</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹3,799</span>
+              <span class="original-price">₹5,199</span>
+            </div>
+            <button class="add" onclick="addToCart('women-skinny')" aria-label="Add 721 High-Rise Skinny Denim to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80" alt="Clarks Leather Pumps">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge hot">⚡ 28% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80" alt="Grace Pointed Leather Pumps">
+        </div>
         <div class="info">
           <div class="category">Women's Shoes • Clarks</div>
           <div class="name">Grace Pointed Leather Pumps</div>
           <span class="quality-badge">Handcrafted Nappa Leather</span>
-          <div class="price-row"><span class="price">₹6,499</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Cushion Plus Offer: Save ₹2,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹6,499</span>
+              <span class="original-price">₹8,999</span>
+            </div>
+            <button class="add" onclick="addToCart('women-pumps')" aria-label="Add Grace Pointed Leather Pumps to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=700&q=80" alt="Jimmy Choo Heels">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge">⚡ 29% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?auto=format&fit=crop&w=700&q=80" alt="Classic Stiletto Pumps">
+        </div>
         <div class="info">
           <div class="category">Women's Shoes • Jimmy Choo</div>
           <div class="name">Classic Stiletto Pumps</div>
           <span class="quality-badge">Italian Suede & Ergonomic Arch</span>
-          <div class="price-row"><span class="price">₹9,999</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Luxury Suede Deal: Save ₹4,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹9,999</span>
+              <span class="original-price">₹13,999</span>
+            </div>
+            <button class="add" onclick="addToCart('women-heels')" aria-label="Add Classic Stiletto Pumps to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
 
       <article class="card">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80" alt="Nike Women Sneakers">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge hot">⚡ 26% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=700&q=80" alt="Air Max Bella Luxe Sneakers">
+        </div>
         <div class="info">
           <div class="category">Women's Shoes • Nike</div>
           <div class="name">Air Max Bella Luxe Sneakers</div>
           <span class="quality-badge">Breathable Mesh & Max Air</span>
-          <div class="price-row"><span class="price">₹6,299</span><button class="add" onclick="addToCart()" aria-label="Add to cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></button></div>
+          <div class="offer-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Max Air Offer: Save ₹2,200</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹6,299</span>
+              <span class="original-price">₹8,499</span>
+            </div>
+            <button class="add" onclick="addToCart('women-sneakers')" aria-label="Add Air Max Bella Luxe Sneakers to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
     </div>
   </section>
 
+  <!-- Electronics Section -->
+  <section id="electronics" class="electronics-section">
+    <div class="section-head">
+      <div>
+        <h2>Electronics & Smart Tech</h2>
+        <p class="section-desc">Next-generation audio, computing, wearables and creator gear with authentic brand warranties.</p>
+      </div>
+      <span class="collection-tag tech-tag">Flagship Tech & Deals</span>
+    </div>
+
+    <!-- Electronics Tech Highlights Banner -->
+    <div class="brand-info-banner">
+      <div class="brand-info-item tech-banner">
+        <div class="brand-icon" style="background: #2563eb;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <b>100% Authentic Tech Brands</b>
+          <p>Authorized retail partner for Apple, Sony, Bose, Samsung, Dell, Logitech & Keychron with official 1-year brand warranty.</p>
+        </div>
+      </div>
+
+      <div class="brand-info-item tech-banner">
+        <div class="brand-icon" style="background: #059669;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <b>Free Priority Express Dispatch</b>
+          <p>Next-day express delivery in secure tamper-proof packaging with full transit insurance on all electronics orders.</p>
+        </div>
+      </div>
+
+      <div class="brand-info-item tech-banner">
+        <div class="brand-icon" style="background: #7c3aed;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div>
+          <b>7-Day Hassle-Free Replacement</b>
+          <p>Comprehensive doorstep inspection, dedicated technical onboarding, and no-questions-asked replacement guarantee.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Electronics Products Grid -->
+    <div class="products">
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 23% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=700&q=80" alt="Sony WH-1000XM5 ANC Headphones">
+        </div>
+        <div class="info">
+          <div class="category">Audio • Sony</div>
+          <div class="name">Sony WH-1000XM5 ANC Headphones</div>
+          <span class="quality-badge">Industry-Leading ANC & 30h Battery</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Flagship Tech Deal: Save ₹8,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹26,990</span>
+              <span class="original-price">₹34,990</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-sony-headphones')" aria-label="Add Sony WH-1000XM5 ANC Headphones to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 15% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80" alt="Apple MacBook Air 13" M3">
+        </div>
+        <div class="info">
+          <div class="category">Computing • Apple</div>
+          <div class="name">Apple MacBook Air 13" M3</div>
+          <span class="quality-badge">Apple M3 Chip & Liquid Retina</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Pro Computing Deal: Save ₹16,910</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹97,990</span>
+              <span class="original-price">₹114,900</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-macbook-air')" aria-label="Add Apple MacBook Air 13" M3 to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 20% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=700&q=80" alt="Samsung Galaxy Watch Ultra Titanium">
+        </div>
+        <div class="info">
+          <div class="category">Wearables • Samsung</div>
+          <div class="name">Samsung Galaxy Watch Ultra Titanium</div>
+          <span class="quality-badge">Titanium Grade 4 & Dual-Freq GPS</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Rugged Wearable Deal: Save ₹12,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹47,999</span>
+              <span class="original-price">₹59,999</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-samsung-watch')" aria-label="Add Samsung Galaxy Watch Ultra Titanium to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 20% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=700&q=80" alt="Bose SoundLink Max Bluetooth Speaker">
+        </div>
+        <div class="info">
+          <div class="category">Audio • Bose</div>
+          <div class="name">Bose SoundLink Max Bluetooth Speaker</div>
+          <span class="quality-badge">Deep Stereo Bass & IP67 Rugged</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Audiophile Special: Save ₹8,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹31,900</span>
+              <span class="original-price">₹39,900</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-bose-speaker')" aria-label="Add Bose SoundLink Max Bluetooth Speaker to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 19% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=700&q=80" alt="Dell UltraSharp 27" 4K USB-C Hub Monitor">
+        </div>
+        <div class="info">
+          <div class="category">Displays • Dell</div>
+          <div class="name">Dell UltraSharp 27" 4K USB-C Hub Monitor</div>
+          <span class="quality-badge">IPS Black 4K & 90W Power Delivery</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Creator Display Offer: Save ₹10,001</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹41,999</span>
+              <span class="original-price">₹52,000</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-dell-monitor')" aria-label="Add Dell UltraSharp 27" 4K USB-C Hub Monitor to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 27% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=700&q=80" alt="Logitech MX Master 3S Wireless Mouse">
+        </div>
+        <div class="info">
+          <div class="category">Peripherals • Logitech</div>
+          <div class="name">Logitech MX Master 3S Wireless Mouse</div>
+          <span class="quality-badge">8K DPI Sensor & MagSpeed Wheel</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Desk Productivity Deal: Save ₹3,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹7,995</span>
+              <span class="original-price">₹10,995</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-logitech-mouse')" aria-label="Add Logitech MX Master 3S Wireless Mouse to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 24% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80" alt="Keychron Q1 Pro Wireless Custom Keyboard">
+        </div>
+        <div class="info">
+          <div class="category">Peripherals • Keychron</div>
+          <div class="name">Keychron Q1 Pro Wireless Custom Keyboard</div>
+          <span class="quality-badge">CNC Aluminum Body & QMK/VIA Hot-Swap</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Enthusiast Deal: Save ₹4,500</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹14,499</span>
+              <span class="original-price">₹18,999</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-keychron-keyboard')" aria-label="Add Keychron Q1 Pro Wireless Custom Keyboard to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 18% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=80" alt="Sony Alpha 7 IV Full-Frame Camera">
+        </div>
+        <div class="info">
+          <div class="category">Photography • Sony</div>
+          <div class="name">Sony Alpha 7 IV Full-Frame Camera</div>
+          <span class="quality-badge">33MP BSI Exmor R & 4K 60p 10-Bit</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Cinema Deal: Save ₹43,590</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹198,900</span>
+              <span class="original-price">₹242,490</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-sony-camera')" aria-label="Add Sony Alpha 7 IV Full-Frame Camera to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 25% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1609592426507-28d844c8f5f0?auto=format&fit=crop&w=700&q=80" alt="Anker Prime 20,000mAh 200W Power Bank">
+        </div>
+        <div class="info">
+          <div class="category">Charging • Anker</div>
+          <div class="name">Anker Prime 20,000mAh 200W Power Bank</div>
+          <span class="quality-badge">Smart Digital Display & 200W GaN</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Ultra-Fast Charge Deal: Save ₹3,250</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹9,749</span>
+              <span class="original-price">₹12,999</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-anker-powerbank')" aria-label="Add Anker Prime 20,000mAh 200W Power Bank to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 12% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=700&q=80" alt="Apple iPad Air 11-inch M2">
+        </div>
+        <div class="info">
+          <div class="category">Tablets • Apple</div>
+          <div class="name">Apple iPad Air 11-inch M2</div>
+          <span class="quality-badge">Apple M2 Silicon & Liquid Retina</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Apple Special Deal: Save ₹7,410</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹52,490</span>
+              <span class="original-price">₹59,900</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-ipad-air')" aria-label="Add Apple iPad Air 11-inch M2 to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 22% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=700&q=80" alt="Marshall Stanmore III Bluetooth Speaker">
+        </div>
+        <div class="info">
+          <div class="category">Home Audio • Marshall</div>
+          <div class="name">Marshall Stanmore III Bluetooth Speaker</div>
+          <span class="quality-badge">Room-Filling Soundstage & Brass Trim</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Iconic Vintage Deal: Save ₹8,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹28,999</span>
+              <span class="original-price">₹36,999</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-marshall-speaker')" aria-label="Add Marshall Stanmore III Bluetooth Speaker to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img-wrap">
+          <span class="card-offer-badge tech">⚡ 17% OFF</span>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=700&q=80" alt="DJI Mini 4 Pro 4K Drone">
+        </div>
+        <div class="info">
+          <div class="category">Drones • DJI</div>
+          <div class="name">DJI Mini 4 Pro 4K Drone</div>
+          <span class="quality-badge">Omnidirectional Sensing & 4K HDR</span>
+          <div class="offer-tagline tech-tagline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Aerial Creator Deal: Save ₹15,000</span>
+          </div>
+          <div class="price-row">
+            <div class="price-wrap">
+              <span class="price">₹74,990</span>
+              <span class="original-price">₹89,990</span>
+            </div>
+            <button class="add" onclick="addToCart('elec-dji-drone')" aria-label="Add DJI Mini 4 Pro 4K Drone to cart">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Store Features -->
   <div class="features">
-    <div class="feature"><b>Free shipping</b><p>Free delivery on orders above ₹999.</p></div>
-    <div class="feature"><b>Easy returns</b><p>Simple 14-day returns on eligible products.</p></div>
-    <div class="feature"><b>Secure checkout</b><p>Your payments and personal information stay protected.</p></div>
+    <div class="feature"><b>Free shipping</b><p>Free express delivery on all orders above ₹999.</p></div>
+    <div class="feature"><b>Easy 14-day returns</b><p>Simple 14-day returns and replacements on eligible products.</p></div>
+    <div class="feature"><b>100% Secure checkout</b><p>End-to-end 256-bit SSL encrypted payment processing.</p></div>
   </div>
 </main>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
@@ -516,7 +1490,7 @@
       <div class="footer-col brand-col">
         <div class="footer-logo">DevOps - Zero To Hero [AI Powered]</div>
         <p class="brand-desc">
-          Thoughtfully designed essentials engineered for modern everyday living. We partner with world-renowned heritage mills to deliver uncompromising quality, ethical craftsmanship, and timeless style.
+          Thoughtfully designed essentials and cutting-edge electronics engineered for modern everyday living. We partner with world-renowned heritage mills and tech innovators to deliver uncompromising quality, ethical craftsmanship, and timeless style.
         </p>
         <div class="brand-values">
           <div class="value-item">
@@ -525,7 +1499,7 @@
           </div>
           <div class="value-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-            <span>100% Authentic Heritage Brands</span>
+            <span>100% Authentic Heritage & Tech Brands</span>
           </div>
         </div>
         <div class="social-links">
@@ -548,13 +1522,12 @@
       <div class="footer-col">
         <h4 class="footer-heading">Collections</h4>
         <ul class="footer-links">
-          <li><a href="#men">Men's Oxford Shirts</a></li>
-          <li><a href="#men">Men's Stretch Denim & Pants</a></li>
-          <li><a href="#men">Men's Handcrafted Shoes</a></li>
-          <li><a href="#women">Women's Silk Blouses & Shirts</a></li>
-          <li><a href="#women">Women's Tailored Trousers</a></li>
-          <li><a href="#women">Women's Designer Pumps & Heels</a></li>
-          <li><a href="#shop">Everyday Accessories & Bags</a></li>
+          <li><a href="#electronics">Smart Electronics & Tech</a></li>
+          <li><a href="#electronics">Flagship Audio & Headphones</a></li>
+          <li><a href="#electronics">Laptops & Computing</a></li>
+          <li><a href="#men">Men's Oxford Shirts & Denim</a></li>
+          <li><a href="#women">Women's Silk Blouses & Heels</a></li>
+          <li><a href="#shop">Everyday Bags & Accessories</a></li>
         </ul>
       </div>
 
@@ -562,9 +1535,9 @@
       <div class="footer-col">
         <h4 class="footer-heading">Our Brand</h4>
         <ul class="footer-links">
-          <li><a href="#men">About Nova Heritage</a></li>
+          <li><a href="#men">About Our Heritage</a></li>
           <li><a href="#men">Giza Egyptian Cotton Standards</a></li>
-          <li><a href="#men">Partner Mills & Labels</a></li>
+          <li><a href="#electronics">Official Tech Brand Partners</a></li>
           <li><a href="#men">Sustainable Craftsmanship</a></li>
           <li><a href="#men">Tailoring & Fit Guide</a></li>
           <li><a href="#">Press & Editorial</a></li>
@@ -575,11 +1548,11 @@
       <div class="footer-col">
         <h4 class="footer-heading">Customer Care</h4>
         <ul class="footer-links">
+          <li><a href="#" onclick="openCart(); return false;">View Shopping Cart</a></li>
           <li><a href="#">Track Your Order</a></li>
           <li><a href="#">Free Shipping Policy</a></li>
           <li><a href="#">14-Day Easy Returns</a></li>
-          <li><a href="#">Secure Checkout</a></li>
-          <li><a href="#">Customer Support</a></li>
+          <li><a href="#">Warranty & Tech Support</a></li>
           <li><a href="#">FAQs</a></li>
         </ul>
       </div>
@@ -587,8 +1560,8 @@
       <!-- Column 5: Newsletter Subscription -->
       <div class="footer-col newsletter-col">
         <h4 class="footer-heading">Stay Connected</h4>
-        <p class="newsletter-desc">Subscribe to receive private collection previews, exclusive member offers, and brand editorial stories.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Nova!');">
+        <p class="newsletter-desc">Subscribe to receive private collection previews, exclusive tech drops, and VIP discount coupons.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed! Use code NOVA10 for 10% off.');">
           <input type="email" placeholder="Enter your email" required class="newsletter-input" />
           <button type="submit" class="newsletter-btn">Subscribe</button>
         </form>
@@ -596,10 +1569,10 @@
       </div>
     </div>
 
-    <!-- Bottom Footer Bar: Copyright, Payment Badges, Legal -->
+    <!-- Bottom Footer Bar -->
     <div class="footer-bottom">
       <div class="footer-copyright">
-        © 2026 NOVA Store Inc. All rights reserved. Crafted for modern, elevated everyday living.
+        © 2026 DevOps - Zero To Hero [AI Powered]. All rights reserved. Crafted for modern, elevated everyday living and smart technology.
       </div>
       <div class="footer-legal">
         <a href="#">Privacy Policy</a>
@@ -621,16 +1594,150 @@
   </div>
 </footer>
 
-<script>
-  let count = 0;
-  function addToCart() {
-    count++;
-    document.getElementById("cartCount").textContent = count;
-  }
-  function showCart() {
-    alert(count ? `You have ${count} item${count > 1 ? "s" : ""} in your cart.` : "Your cart is empty.");
-  }
-</script>
+<!-- ========================================================
+     CART TAB / SLIDE-IN CART DRAWER
+     ======================================================== -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()" aria-hidden="true"></div>
+
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+  <!-- Cart Header -->
+  <div class="cart-header">
+    <div class="cart-header-title">
+      <h3 id="cartDrawerTitle">Shopping Bag</h3>
+      <span class="cart-count-pill" id="drawerCartCount">0 items</span>
+    </div>
+    <button class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">✕</button>
+  </div>
+
+  <!-- Free Shipping Progress Bar -->
+  <div class="cart-shipping-bar" id="cartShippingBar">
+    <div class="shipping-text" id="shippingProgressText">Add <b>₹999</b> to unlock <b>FREE Delivery</b></div>
+    <div class="shipping-track">
+      <div class="shipping-fill" id="shippingProgressFill" style="width: 0%;"></div>
+    </div>
+  </div>
+
+  <!-- Cart Items List / Body -->
+  <div class="cart-body" id="cartBody">
+    <div id="cartItemsList"></div>
+
+    <!-- Empty State -->
+    <div class="cart-empty-state" id="cartEmptyState" style="display: none;">
+      <div class="cart-empty-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+      </div>
+      <h4 class="cart-empty-title">Your cart is empty</h4>
+      <p class="cart-empty-desc">Explore our curated collections in Electronics, Fashion, and Everyday essentials to add items.</p>
+      <button class="cart-empty-btn" onclick="closeCart(); location.href='#shop';">Start Shopping →</button>
+    </div>
+  </div>
+
+  <!-- Cart Footer with Pricing & Checkout -->
+  <div class="cart-footer" id="cartFooter">
+    <!-- Coupon / Discount Box -->
+    <div class="cart-coupon-box">
+      <input type="text" id="cartCouponInput" class="cart-coupon-input" placeholder="Promo code (e.g. NOVA10)" />
+      <button type="button" class="cart-coupon-btn" onclick="applyCoupon()">Apply</button>
+    </div>
+    <div id="couponMessage" class="coupon-message"></div>
+
+    <div class="cart-summary-line">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">₹0</span>
+    </div>
+    <div class="cart-summary-line savings" id="cartSavingsRow" style="display: none;">
+      <span>Special Offer Savings</span>
+      <span id="cartSavings">- ₹0</span>
+    </div>
+    <div class="cart-summary-line savings" id="couponDiscountRow" style="display: none;">
+      <span>Coupon Discount (10% OFF)</span>
+      <span id="couponDiscount">- ₹0</span>
+    </div>
+    <div class="cart-summary-line">
+      <span>Shipping</span>
+      <span style="color: #059669; font-weight: 700;">FREE</span>
+    </div>
+    <div class="cart-summary-line total">
+      <span>Total Amount</span>
+      <span id="cartGrandTotal">₹0</span>
+    </div>
+
+    <button class="cart-checkout-btn" onclick="openCheckoutModal()">
+      <span>Proceed to Checkout</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <button class="cart-clear-btn" onclick="clearCart()">Clear Cart</button>
+  </div>
+</aside>
+
+<!-- ========================================================
+     CHECKOUT MODAL
+     ======================================================== -->
+<div class="checkout-modal-backdrop" id="checkoutModalBackdrop" onclick="if(event.target === this) closeCheckoutModal()" aria-hidden="true">
+  <div class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="checkout-modal-head">
+      <h3 id="checkoutTitle">Complete Your Order</h3>
+      <button class="cart-close-btn" onclick="closeCheckoutModal()" aria-label="Close checkout">✕</button>
+    </div>
+
+    <form onsubmit="handlePlaceOrder(event)">
+      <div class="checkout-form-group">
+        <label for="custName">Full Name *</label>
+        <input type="text" id="custName" required placeholder="e.g. Rahul Sharma" />
+      </div>
+
+      <div class="checkout-form-group">
+        <label for="custPhone">Phone Number *</label>
+        <input type="tel" id="custPhone" required placeholder="e.g. +91 98765 43210" />
+      </div>
+
+      <div class="checkout-form-group">
+        <label for="custAddress">Delivery Address *</label>
+        <input type="text" id="custAddress" required placeholder="Flat, Street, City, Pincode" />
+      </div>
+
+      <div class="checkout-form-group">
+        <label for="custPayment">Payment Method *</label>
+        <select id="custPayment" required>
+          <option value="upi">UPI (Google Pay / PhonePe / Paytm)</option>
+          <option value="card">Credit / Debit Card (Visa, Mastercard, RuPay)</option>
+          <option value="cod">Cash on Delivery (Verified)</option>
+          <option value="netbanking">Net Banking</option>
+        </select>
+      </div>
+
+      <div class="checkout-order-summary">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+          <span>Items in Bag:</span>
+          <b id="checkoutItemCount">0 items</b>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: #0f172a;">
+          <span>Final Total Payable:</span>
+          <b id="checkoutTotalPayable">₹0</b>
+        </div>
+      </div>
+
+      <button type="submit" class="checkout-place-btn">
+        <span>Place Order & Pay</span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ========================================================
+     TOAST NOTIFICATION
+     ======================================================== -->
+<div class="cart-toast" id="cartToast" role="alert" aria-live="assertive">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="cartToastMessage">Item added to cart!</span>
+  <button class="cart-toast-btn" onclick="openCart()">View Cart</button>
+</div>
+
+<!-- Core Store Script -->
+<script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 
 </body>
 </html>
