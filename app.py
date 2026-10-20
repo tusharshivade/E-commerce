@@ -20,4 +20,6 @@ def serve_template_assets(filename):
         return send_from_directory('templates', filename)
     if os.path.exists(os.path.join('static', filename)):
         return send_from_directory('static', filename)
+    if os.path.exists(filename):
+        return send_from_directory('.', filename)
     return jsonify(error='Not found'), 404
