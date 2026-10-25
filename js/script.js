@@ -213,6 +213,50 @@ const PRODUCTS_DATA = {
     "tagline": "Waterproof Deal: Save \u20b94,000",
     "image": "https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=700&q=80"
   },
+  "one8-maroon": {
+    "id": "one8-maroon",
+    "name": "one8 Virat Kohli Maroon Classic Sneaker",
+    "category": "Men's Shoes \u2022 one8 by Virat Kohli",
+    "quality": "Handcrafted Burgundy Napa & Gum Sole",
+    "price": 4499,
+    "originalPrice": 6999,
+    "offer": "36% OFF",
+    "tagline": "Virat Signature: Save \u20b92,500",
+    "image": "images/one8-maroon-sneakers.jpg"
+  },
+  "one8-white": {
+    "id": "one8-white",
+    "name": "one8 Virat Kohli Court White & Teal Sneaker",
+    "category": "Men's Shoes \u2022 one8 by Virat Kohli",
+    "quality": "Crisp White Calfskin & Emerald Accent",
+    "price": 3999,
+    "originalPrice": 5999,
+    "offer": "33% OFF",
+    "tagline": "Court Edition: Save \u20b92,000",
+    "image": "images/one8-white-court.jpg"
+  },
+  "one8-black": {
+    "id": "one8-black",
+    "name": "one8 Virat Kohli Core Black Urban Sneaker",
+    "category": "Men's Shoes \u2022 one8 by Virat Kohli",
+    "quality": "Matte Black Leather & Crimson Accent",
+    "price": 4299,
+    "originalPrice": 6499,
+    "offer": "34% OFF",
+    "tagline": "Stealth Edition: Save \u20b92,200",
+    "image": "images/one8-black-urban.jpg"
+  },
+  "one8-runner": {
+    "id": "one8-runner",
+    "name": "Puma x one8 Virat Kohli V-Speed Slip-On",
+    "category": "Men's Shoes \u2022 Puma x one8",
+    "quality": "Breathable Knit Mesh & SoftFoam+ Cushioning",
+    "price": 3499,
+    "originalPrice": 4999,
+    "offer": "30% OFF",
+    "tagline": "Athletic Deal: Save \u20b91,500",
+    "image": "images/one8-blue-runner.jpg"
+  },
   "women-shirt": {
     "id": "women-shirt",
     "name": "Tailored Poplin Shirt",
