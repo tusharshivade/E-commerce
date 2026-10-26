@@ -1,47 +1,127 @@
-# E-commerce App for GitHub actions practice
+# Nova E-Commerce Application (3-Tier Architecture)
 
-## GitHub Actions Fundamentals:
-- What is CI/CD
-- Workflows, Jobs, Steps, Actions
-- Creating workflows
-- Secrets & Variables
-- GitHub Pages
-- Workflow Dispatch vs push
+A modern, production-grade 3-tier E-commerce web application designed with dedicated **frontend**, **backend**, and **database** tiers, complete with automated CI/CD pipelines, Docker containerization, and AWS Elastic Beanstalk deployment.
 
+---
 
-## Deploy on Elastic Beanstalk (Standard Mode)
+## Architecture Overview
 
-Elastic Beanstalk is a powerful PaaS that runs your application and manages the servers, load balancer and health checks for you. This app ships as a Docker image on Docker Hub, so the only file you upload is `beanstalk/docker-compose.yml`. There is no ZIP and no Dockerfile to upload.
-
-The image is `trainwithshubham/e-commerce-python:1.1.0`. It is built for both linux/amd64 and linux/arm64, runs as a non-root user and listens on port 8080 inside the container. The compose file publishes it on port 80 of the instance. The app also has a `/health` route that returns `{"status":"ok"}`.
-
-### Steps
-
-1. Sign in to the AWS console, pick a region and open the Elastic Beanstalk service.
-2. Click Create environment.
-3. Choose the Web server environment and keep Standard as the configuration mode.
-4. Enter an application name such as `ecommerce-app`. The environment name and domain are filled in for you.
-5. Under Platform, choose Docker, with the platform branch Docker running on 64bit Amazon Linux 2023. Keep the recommended platform version.
-6. Under Application code, choose Upload your code and select Local file.
-7. Choose the file `beanstalk/docker-compose.yml` from this repo. Give it a version label like `v1`.
-8. On the service access step, pick Create and use new service role, and pick an EC2 instance profile. If you do not have one, create it from the IAM link on that page, using the AWSElasticBeanstalkWebTier managed policy. Skip the key pair.
-9. Leave the remaining steps on their defaults and click Submit on the review page.
-
-### Check that it works
-
-1. Open the Events tab and wait for the message that the environment launched successfully. This takes a few minutes.
-2. The environment health should turn green and show Ok.
-3. Click the environment URL at the top of the page. You should see the e-commerce home page.
-4. Add `/health` to the end of the URL. You should get `{"status":"ok"}`.
-
-### Clean up
-
-Terminate the environment when you are done so you are not charged for the instance. From the environment page choose Actions, then Terminate environment, and type the environment name to confirm. You can delete the application as well from the Applications page.
-
-### Run it locally
+The repository is structured into distinct, clean layers:
 
 ```
+e-commerce-github-actions/
+├── frontend/                     # Client-side user interface
+│   ├── index.html                # Responsive single-page storefront
+│   ├── css/
+│   │   ├── style.css             # Store styling, layouts, animations
+│   │   └── cart.css              # Slide-in cart & checkout styling
+│   ├── js/
+│   │   └── script.js             # Cart management, catalog & handlers
+│   ├── images/                   # Local images & product media
+│   └── README.md
+├── backend/                      # Python / Flask API server
+│   ├── app.py                    # REST API routes & static asset serving
+│   ├── test_app.py               # Unit tests (pytest)
+│   ├── requirements.txt          # Python dependencies
+│   ├── __init__.py
+│   └── README.md
+├── database/                     # Database schemas, seeds & migrations
+│   ├── schema.sql                # Relational DDL (products, categories, users, orders)
+│   ├── seed_data.sql             # Catalog seed data (44 products across 8 categories)
+│   ├── init_db.py                # Database initialization script (SQLite / SQL)
+│   └── README.md
+├── .github/                      # GitHub Actions CI/CD workflows
+├── beanstalk/                    # AWS Elastic Beanstalk deployment configs
+├── app.py                        # Root entrypoint forwarding to backend.app
+├── test_app.py                   # Root test runner for CI/CD
+├── Dockerfile                    # Container definition
+├── docker-compose.yml            # Multi-tier container orchestration
+└── requirements.txt              # Root dependencies for CI/CD & Docker
+```
+
+---
+
+## 1. Quick Start (Local Development)
+
+### Prerequisites
+- Python 3.12+
+- `pip`
+
+### Step 1: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 2: Initialize Database
+```bash
+python database/init_db.py
+```
+
+### Step 3: Start the Backend Server
+```bash
+python app.py
+```
+Open your browser and navigate to:
+- **Storefront**: [http://localhost:8080](http://localhost:8080)
+- **Health Check**: [http://localhost:8080/health](http://localhost:8080/health)
+- **Products API**: [http://localhost:8080/api/products](http://localhost:8080/api/products)
+
+---
+
+## 2. Running Automated Tests
+
+Run the full pytest suite from the project root:
+```bash
+pytest
+```
+
+Run code formatting / lint checks:
+```bash
+ruff check .
+```
+
+---
+
+## 3. Docker & Docker Compose
+
+### Run with Docker Compose
+```bash
 docker compose up -d
 ```
+Access the application on [http://localhost](http://localhost).
 
-Then open http://localhost. The root `docker-compose.yml` uses the `latest` tag, and the Beanstalk one pins `1.1.0`.
+### Build Custom Image Locally
+```bash
+docker build -t ecommerce-app:latest .
+docker run -p 8080:8080 ecommerce-app:latest
+```
+
+---
+
+## 4. Deploy on AWS Elastic Beanstalk (Standard Mode)
+
+Elastic Beanstalk runs the containerized application and manages server provisioning, load balancing, and health checks.
+
+This app ships as a Docker image on Docker Hub, so the only file required to upload is `beanstalk/docker-compose.yml`.
+
+### Deployment Steps:
+1. Sign in to AWS Console > **Elastic Beanstalk**.
+2. Click **Create environment** > **Web server environment**.
+3. Set application name to `ecommerce-app`.
+4. Platform: **Docker** on **64bit Amazon Linux 2023**.
+5. Application code: Select **Upload your code** > upload `beanstalk/docker-compose.yml` with version label `v1`.
+6. Configure IAM service role and EC2 instance profile (`AWSElasticBeanstalkWebTier`).
+7. Click **Submit** and wait for the environment health to turn green (**Ok**).
+8. Visit the environment URL to view the live storefront.
+
+---
+
+## 5. GitHub Actions CI/CD Pipelines
+
+Automated workflows included in `.github/workflows/`:
+- `lint_and_test.yml`: Multi-version Python linting (`ruff`) and testing (`pytest`).
+- `docker.yml` / `docker_push.yml`: Automated Docker image building and registry publishing.
+- `trivy_scans.yml`: Container security vulnerability scanning.
+- `secrets-scanning.yml`: Secret detection and credential leak prevention.
+- `sonar_scan.yml`: Static application security testing (SAST).
+- `github_pages.yml`: Automated static frontend deployment.
